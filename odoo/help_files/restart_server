@@ -1,0 +1,15 @@
+#Stop Odoo server
+#1. Check the process running on the server related to openerp
+> ps aux | grep openerp
+#2. Kill the process that hold OpenERP server. The process usually look like this:
+> openerp  17387  2.1  5.2 742560 109728 pts/4   Sl   20:54   0:15 python ./openerp-server -c /etc/openerp-server.conf
+#
+> sudo kill -9 17387
+# or
+> kill -9 17387  --- root mode
+ 
+#3. And then start the server just the way you usually start it.
+ 
+>/etc/init.d/odoo start # one.yugla.com server
+ 
+>/etc/init.d/odoo4 start #milust.yugla.com server 
