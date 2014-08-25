@@ -1,3 +1,5 @@
+ ###Vladimir: The commands that have only one '#' have to be typed that way in the text editor 
+ 
  ### PACKAGES
 apt-get update
 apt-get upgrade
@@ -53,10 +55,14 @@ export ODOO_DOMAIN=EDIT-ME.example.com
  
  
  ### CONFIGS
- mkdir /var/log/odoo/
  
+ mkdir /var/log/odoo/
+
+## Vladimir: Replace the second ${ODOO_USER} (the one after the colon) by 'root'
+   
  chown ${ODOO_USER}:${ODOO_USER} /var/log/odoo
  
+
  mkdir /etc/odoo
  
  cat <<EOF > /etc/odoo/odoo-server.conf
@@ -212,7 +218,7 @@ EOF
  
 ### BEGIN INIT INFO
 # Provides:		odoo-server-longpolling
-# Required-Start:	\$remote_fs \$syslog
+# Required-Start:	\$remote_fs \$syscdlog
 # Required-Stop:	\$remote_fs \$syslog
 # Should-Start:		\$network
 # Should-Stop:		\$network
@@ -307,6 +313,8 @@ client_max_body_size 100m;
 EOF
  ## EOF =====================================
  
+ ##Vladimir: Replace where is says ${ODOO_DOMAIN} by the domain name of the installation
+ 
  cat <<EOF > /etc/nginx/sites-available/odoo.conf
  
  server {
@@ -326,11 +334,13 @@ EOF
  ## EOF =====================================
  ln -s /etc/nginx/sites-available/odoo.conf /etc/nginx/sites-enabled/odoo.conf 
  
-service nginx restart
+ service nginx restart
  
  ### DEBUG
+ ## Vladimir: Didn't while installing - an error.
  ## log
  # tail -f -n 100 /var/log/odoo/odoo-server.log 
  
  ## start from console: 
+ ## Vladimir: Replace where it says ${ODOO_USER} by 'odoo'
  #  sudo su - ${ODOO_USER} -s /bin/bash -c  "/usr/local/src/odoo/openerp-server -c /etc/odoo/odoo-server.conf"

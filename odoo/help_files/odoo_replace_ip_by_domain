@@ -1,0 +1,64 @@
+##  In Godaddy (or any domain 
+
+## 	1-In the hosting service (Godaddy)
+##	2-Launch Domain management
+##	3-Go to DNS Zone File
+##	4-You have to create record of "type A":
+##	5-host: "subdomain_name"
+##	6-points to: 209.159.153.169 (whatever ip address of the server)
+##	7-TTL: default 
+
+
+## Vladimir: During the installation process, Replace where is says ${ODOO_DOMAIN} 
+## by the domain name of the installation on the file /etc/nginx/sites-available/odoo.conf.
+## Also if you want to have multiple installations inside the same server, in the same file, 
+## repeat the same but removing the words 'default_sver'and changing the ports. 
+ 
+cat <<EOF > /etc/nginx/sites-available/odoo.conf
+ 
+ server {
+        listen 80 default_server;
+        server_name ${ODOO_DOMAIN};
+        include odoo_params;
+ 
+        location /longpolling {
+            proxy_pass http://localhost:8072;
+        }
+ 
+        location / {
+            proxy_pass http://localhost:8069;
+        }
+}
+
+ server {
+        listen 80;
+        server_name ${ODOO_DOMAIN};
+        include odoo_params;
+ 
+        location /longpolling {
+            proxy_pass http://localhost:8072;
+        }
+ 
+        location / {
+            proxy_pass http://localhost:8069;
+        }
+}
+
+
+EOF
+
+ ## EOF =====================================
+ 
+ ##  CREATING THE DATABASE
+ 
+ 
+ ## 1-After complete the installation, and while creating the database
+ ## 2-When you try to create the database, put the name you want. Ex. newdatabase.yugla.com
+ ## 3-The system will give you an erro because it doesn' allow dot '.' in the name
+ ## 4-Stand on the box that contain the name
+ ## 5-In google chrome browser click right mouse button on "select database name" field at form. Then click "inspect element".
+ ## 6-You will see html source.
+ ## 7-A "matches" attributes is what forbid to create database with dots. Via double click or context menu "edit attribute" you can delete it. 
+ ## 8-matches is between 'class' and 'name': delete 'matches' and the blue letters 
+ 
+ 
