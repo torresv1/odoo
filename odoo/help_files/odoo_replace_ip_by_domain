@@ -18,21 +18,21 @@ cat <<EOF > /etc/nginx/sites-available/odoo.conf
  
  server {
         listen 80 default_server;
-        server_name ${ODOO_DOMAIN};
+        server_name ${ODOO_DOMAIN};  #info for milust.yugla.com
         include odoo_params;
  
         location /longpolling {
-            proxy_pass http://localhost:8072;
+            proxy_pass http://localhost:8472;
         }
  
         location / {
-            proxy_pass http://localhost:8069;
+            proxy_pass http://localhost:8469;
         }
 }
 
  server {
         listen 80;
-        server_name ${ODOO_DOMAIN};
+        server_name ${ODOO_DOMAIN}; # info for one.yugla.com
         include odoo_params;
  
         location /longpolling {
