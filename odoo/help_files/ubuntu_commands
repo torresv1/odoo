@@ -1,0 +1,2 @@
+# Change root password
+	sudo passwd

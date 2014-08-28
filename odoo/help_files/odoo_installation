@@ -139,7 +139,9 @@ xmlrpcs_port = 8071
  
 EOF
  
- chown ${ODOO_USER}:${ODOO_USER} /etc/odoo/odoo-server.conf
+ ##Vladimir: Change the 2nd '${ODOO_USER} by 'root'
+ 
+ chown ${ODOO_USER}:${ODOO_USER} /etc/odoo/odoo-server.conf 
  chmod 600 /etc/odoo/odoo-server.conf
  
  
@@ -337,10 +339,10 @@ EOF
  service nginx restart
  
  ### DEBUG
- ## Vladimir: Didn't while installing - an error.
+ ## Vladimir: Only copy and paste the section 'tail .. ; without the '#'
  ## log
  # tail -f -n 100 /var/log/odoo/odoo-server.log 
  
  ## start from console: 
  ## Vladimir: Replace where it says ${ODOO_USER} by 'odoo'
- #  sudo su - ${ODOO_USER} -s /bin/bash -c  "/usr/local/src/odoo/openerp-server -c /etc/odoo/odoo-server.conf"
+ #  sudo su - odoo -s /bin/bash -c  "/usr/local/src/odoo/openerp-server -c /etc/odoo/odoo-server.conf"
