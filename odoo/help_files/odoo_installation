@@ -68,7 +68,7 @@ export ODOO_DOMAIN=EDIT-ME.example.com
  cat <<EOF > /etc/odoo/odoo-server.conf
  
 [options]
-addons_path = /usr/local/src/addons-extra,/usr/local/src/odoo/addons,/usr/local/src/odoo/openerp/addons,/usr/local/src/addons-yelizariev,/usr/local/src/pos-addons
+addons_path = /usr/local/src/addons-extra,/usr/local/src/odoo/addons,/usr/local/src/odoo/openerp/addons,/usr/local/src/addons-yelizariev,/usr/local/src/pos-addons,/usr/local/src/addons_vladimir
 admin_passwd = ${ODOO_PASS}
 auto_reload = False
 csv_internal_sep = ,
