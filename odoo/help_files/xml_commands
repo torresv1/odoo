@@ -1,0 +1,13 @@
+#Commenting
+	<?xml version="1.0" encoding="ISO-8859-15"?>
+	<!-- My comment is here within these <!-- and -->. Students grades are updated bi-monthly -->   
+	<class_list>
+		<student>
+			<name>Robert</name>
+			<grade>A+</grade>
+		</student>
+		<student>
+			<name>Lenard</name>
+			<grade>A-</grade>
+		</student>
+	</class_list>
