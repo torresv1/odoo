@@ -7,7 +7,7 @@
     """,
     'author': 'Vladimir Torres-Rivas',
     'depend': ['base','sale'],
-    'data':['silkworm_sale_order_workflow.xml'],
+    'data':['silkworm_sale_order_workflow_view.xml'],
     'demo':[],
     'installable': True,
     'auto_install': False,
