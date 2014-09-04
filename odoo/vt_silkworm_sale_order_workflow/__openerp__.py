@@ -1,5 +1,5 @@
 {
-    'name': 'Screen Printing',
+    'name': 'Screen Printing Workflow modification',
     'version': '2.0',
     'description': """
     This module change the workflow of the 

@@ -1,6 +1,6 @@
 from openerp.osv import osv,fields
 
-class silkworm_sale_order(osv.Model):
+class silkworm_sale_order_workflow(osv.Model):
     _inherit = 'sale.order'
     
     _columns = {
