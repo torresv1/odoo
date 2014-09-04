@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+	<data>
+		<!-- vt: Defining which form I want to modify -->  
+		<record id="sale_view_order_form" model="ir.ui.view"> 
+			            
+			<!-- vt: Defining which base module I want to modify --> 	
+			<field name="model">sale.order</field>
+			<field name="inherit_id" ref="sale.view_order_form"/>
+			<field name="arch" type="xml">
+				
+				<!-- vt: Defining which fields I want to add and where-->
+				<field name="client_order_ref" position="after">
+					<field name="x_daterequired"/>
+					<field name="x_rush"/>
+				
+				</field>	
+		    </field>
+		</record>	
+	</data>
+</openerp>
