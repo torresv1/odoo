@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+	
+	
+<openerp>
+	<data>
+		<record id="vetclinic_animal_action" model="ir.actions.act_window">
+			<field name="name">Animals</field>
+			<field name="res_model">vetclinic.animal</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree</field>
+			<field name="help" type="html">	
+				<p class="oe_view_nocontent_create">Click Create to add a new animal record.</p>
+			</field>	
+		</record>
+		
+		
+		<menuitem id="vetclinic" name="Vet Clinic"/>	
+		<menuitem id="vetclinic_menu" name="Vet Clinic" parent= "vetclinic" />
+		<menuitem id="vetclinic_animal_menu" 
+				name="Animals" 
+				parent="vetclinic_menu" 
+		 		action="vetclinic_animal_action"
+		 />
+	</data>
+</openerp>
