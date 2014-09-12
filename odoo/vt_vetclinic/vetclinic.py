@@ -1,4 +1,4 @@
-from osv import osv, fields
+from openerp.osv import osv, fields
 
 class vetclinic_animal(osv.Model):
     _name = "vetclinic.animal"
