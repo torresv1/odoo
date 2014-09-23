@@ -8,19 +8,51 @@
 			<field name="name">Animals</field>
 			<field name="res_model">vetclinic.animal</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">tree</field>
+			<field name="view_mode">tree,form</field>
 			<field name="help" type="html">	
 				<p class="oe_view_nocontent_create">Click Create to add a new animal record.</p>
 			</field>	
 		</record>
-		
+
+		<record id="vetclinic_classification_action" model="ir.actions.act_window">
+			<field name="name">Classification</field>
+			<field name="res_model">vetclinic.classification</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">	
+				<p class="oe_view_nocontent_create">Click Create to add a new classification record.</p>
+			</field>	
+		</record>
+				
+		<record id="vetclinic_breed_action" model="ir.actions.act_window">
+			<field name="name">Breed</field>
+			<field name="res_model">vetclinic.breed</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">	
+				<p class="oe_view_nocontent_create">Click Create to add a new breed record.</p>
+			</field>	
+		</record>		
+									
+				
 		
 		<menuitem id="vetclinic" name="Vet Clinic"/>	
 		<menuitem id="vetclinic_menu" name="Vet Clinic" parent= "vetclinic" />
 		<menuitem id="vetclinic_animal_menu" 
-				name="Animals" 
-				parent="vetclinic_menu" 
-		 		action="vetclinic_animal_action"
+			name="Animals" 
+			parent="vetclinic_menu" 
+			action="vetclinic_animal_action"
 		 />
+		<menuitem id="vetclinic_classification_menu" 
+			name="Classification" 
+			parent="vetclinic_menu" 
+			action="vetclinic_classification_action"
+		 />
+		<menuitem id="vetclinic_breed_menu" 
+			name="Breed" 
+			parent="vetclinic_menu" 
+			action="vetclinic_breed_action"
+		 />		 	
+		 	
 	</data>
 </openerp>
