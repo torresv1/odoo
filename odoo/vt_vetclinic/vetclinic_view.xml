@@ -4,6 +4,7 @@
 	
 <openerp>
 	<data>
+
 		<record id="vetclinic_animal_action" model="ir.actions.act_window">
 			<field name="name">Animals</field>
 			<field name="res_model">vetclinic.animal</field>
@@ -35,6 +36,20 @@
 		</record>		
 									
 				
+		<record id="vetclinic_animal_form_view" model="ir.ui.view">
+			<field name="name">vetclinic.animal.form.view</field>
+			<field name="view_type">form</field>
+			<field name="model">vetclinic.animal</field>
+			<field name="arch" type="xml">
+				<form string="Animal">
+					<field name="name"/>
+					<field name="birthdate"/>
+					<field name="breed_id"/>
+					<field name="classification_id"/>
+					<field name="labels_ids"/>
+				</form>
+			</field>	
+		</record>
 		
 		<menuitem id="vetclinic" name="Vet Clinic"/>	
 		<menuitem id="vetclinic_menu" name="Vet Clinic" parent= "vetclinic" />
