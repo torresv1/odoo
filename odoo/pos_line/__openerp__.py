@@ -30,7 +30,7 @@
 
 =======================
 
-This module adds show Items couting in categories features to the Point of Sale:
+This module adds show Items counting in categories features to the Point of Sale:
 
 
 """,
