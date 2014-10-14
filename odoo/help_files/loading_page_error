@@ -1,0 +1,23 @@
+odoo javascript Error
+
+
+1.Error is from Javascript because problem is in loading view and no error windows has been shown
+2.Check all addons of the server and pick the all customized module which has javascript related customization/Development
+3.There are two options now for tracing.
+3a.Remove the custom addons from the server's config file
+3b.Comment the xml,javascript file in __openerp__ file of modules which we picked in step 2
+
+Through above steps you can run your server.
+
+Now if server is up, check the modules installed. 
+
+If you want to check javascript exception then you can check on console of browser on pressinf F12 key.
+It won't give exact file of error but will give you some idea javascript error
+
+
+Another way is-
+
+1.Find the Process id of odoo-server
+2. Kill the Process
+3.Go to server file(odoo-derver) path 
+4.Run and check the different combinations of addons 

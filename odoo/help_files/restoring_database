@@ -1,0 +1,13 @@
+It problem with need make update=all manual.
+
+I may reconfigure user odoo on server and make config for debug console.
+
+Now you can: sudo su odoo
+
+You need start in console: /usr/local/src/odoo/openerp-server -c /etc/odoo/odoo-server-d.conf --debug --update=all
+
+After than go to web , select your database or just rafresh page. In console you can check all steps. When in console finish update and web start, Press Ctr-c and start odoo-server normaly.
+
+Now i am has already done and POS works.
+
+For future you need make / sudo service odoo start/stop and it automatically start/stop if server restart.

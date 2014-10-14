@@ -1,0 +1,23 @@
+
+Variables
+
+this_side
+other_siu
+
+
+
+If other_side_status = running then:
+
+	if (other_side_end_time - this_side_cooldown_time) < 4 hours then:
+		
+		this_side_priority == 1
+		
+	else (other_side_end_time - this_side_cooldown_time) > 4 hours and < 8 then:
+		
+		this_side_priority == 2
+		
+	else (other_side_end_time - this_side_cooldown_time) > 8 then:
+		
+		this_side_priority == 3
+		
+else this_side_priority == 1      
