@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+         <record id="pos_custome_dsc_c_form_view" model="ir.ui.view">
+            <field name="name">pos.customer.dsc.c.form</field>
+            <field name="model">pos.customer.dsc.c</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="POS Discount">
+                    <group>
+                        <field name="name"/>
+                        <field name="value"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_partner_pos_discount_form" model="ir.ui.view">
+            <field name="name">partner.pos.discount.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="point_of_sale.view_partner_property_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='ean13']" position="before">
+                        <field name='POS_discount_id' />
+                </xpath>
+            </field>
+        </record>
+
+
+
+
+
+    </data>
+</openerp>

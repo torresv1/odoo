@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pos_customer_dsc_c,pos.customer.dsc.c.user,model_pos_customer_dsc_c,point_of_sale.group_pos_user,1,0,0,0
+access_pos_customer_dsc_c_manager,pos.customer.dsc.c.manager,model_pos_customer_dsc_c,point_of_sale.group_pos_manager,1,0,0,0
