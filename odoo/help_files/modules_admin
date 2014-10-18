@@ -14,6 +14,8 @@ milust_test
 
 	pos_item_counter 1.0.0
 
+	pos_customer_disc 1.0.0
+	
 milust.yugla.com
 	
 	pos_discount 1.0.0
