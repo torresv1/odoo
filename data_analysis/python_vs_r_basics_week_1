@@ -1,0 +1,160 @@
+# CREATE A VARIABLE
+r-foo <- c(3,5,7,9)
+p-foo = (3,5,7,9)
+
+# PRINT THE VARIABLE
+rp-foo
+
+# PLAY WITH THE VARIABLE
+rp-foo[2]
+rp-foo[0]
+rp-foo[1]
+
+# READ IN A EXCEL FILE
+r-simple <- read.csv("C:/Users/torresv1/Google Drive/Personal/Education/Rutgers/Courses/Business Forecasting/Classes/simple.csv")
+p-simple = pandas.read_csv("C:/Users/torresv1/Google Drive/Personal/Education/Rutgers/Courses/Business Forecasting/Classes/simple.csv")
+
+# VIEW THE EXCEL FILE
+r-View(simple)
+p-not_found
+
+# SAVE TO A NEW VARIABLE
+r-trial <- simple
+p-trial = simple
+
+# PRINT OUT THE VAIRABLE
+r-trial
+p-trial
+
+# GET THE COLUMN NAMES
+r-names(trial)
+p-list(trial)
+
+# PRINT A COLUMN FROM THE "SHEET"
+r-trial$trial
+r-trial$mass
+r-trial$velocity
+p-trail['trial']
+p-trail['mass']
+p-trail['velocity']
+
+# A USEFUL FUNCTION 
+r-attributes(trial)
+p-not_found
+
+# GIVES WHAT TYPE OF VARIABLE IT IS
+r-class(trial)
+p-type(trial)
+
+# GIVE ME THE SUMMARY OF THE EXCEL FILE
+r-summary(trial)
+p-trial.describe()
+
+# R COMES WITH SOME PRELOADED DATA SETS. LET SEE WHAT ONE LOOK LIKE
+r-mtcars
+p-1st method:problems installing rpy2-(couldn't make win32api to work)
+p-2nd method:using statsmodels.api as sm (sm.datasets.get_rdataset("mtcars") or data = sm.datasets.longley.load_pandas()-longley is a dataset. 
+  However, can't transform the dataset into a dataframe. 
+
+# READ THE HELP FILE TO GET TO KNOW MORE ABOUT THE DATASET
+r-?mtcars
+p-not_found
+
+# LETS CREATE A HISTOGRAM
+r-hist(mtcars$mpg)
+p-matplotlib.pyplot.hist(mtcars['mpg'])
+p-matplotlib.pyplot.show()	
+
+# Colored Histogram with Different Number of Bins
+r-hist(mtcars$mpg, breaks=12, col="red")
+p-matplotlib.pyplot.hist(mtcars['mpg'],bins=12,color='red')
+p-matplotlib.pyplot.title('Histogram of mtcars["mpg"]')
+p-matplotlib.pyplot.show()	
+
+# HELP CAN BE USED WITH ANY FUNCTIONS
+r-help(hist)
+p-help(matplotlib.pyplot.hist)  or matplotlib.pyplot.hist?? 
+
+# Colored Histogram with Different Number of Bins
+r-hist(mtcars$mpg, breaks=8, col="red")
+p-matplotlib.pyplot.hist(mtcars['mpg'],bins=8,color='red')
+p-matplotlib.pyplot.title('Histogram of mtcars["mpg"]')
+p-matplotlib.pyplot.show()	
+
+# LETS SAVE THE COLUMN TO A NEW VARIABLE SO WE CAN USE SHORTER NAME
+r-x <- mtcars$mpg
+p-x = mtcars["mpg"]
+
+# LETS SAVE THE HISTOGRAM TO A NEW VARIABLE H
+# SEE HOW YOU CAN LABEL YOUR GRAPHS!
+r-h<-hist(x, breaks=10, col="red", xlab="Miles Per Gallon",main="Histogram with Normal Curve")
+p-h = plt.hist(x, bins=10, color="red")
+p-plt.title("Histogram with Normal Curve")
+p-plt.xlabel("Miles per Gallon")
+p-plt.ylabel("Frequency")
+
+# Kernel Density Plot
+r-d <- density(mtcars$mpg) # returns the density data
+r-plot(d) # plots the results
+p-d = x.plot(kind='kde')
+p-fig = d.get_figure()
+p-plt.show()
+
+# Simple Dotplot
+r-dotchart(mtcars$mpg,labels=row.names(mtcars),cex=.7,main="Gas Milage for Car Models", xlab="Miles Per Gallon")
+p-d = mtcars['mpg'].plot(kind='barh')
+p-d.set_title ('Gas Milage for Car Models')
+p-d.set_yticklabels(mtcars['brand'])
+p-d.set_xlabel('Miles per gallon')
+p-fig = d.get_figure()
+p-plt.show()
+
+# WHAT IS CEX?? LETS CHECK THE HELP PAGE
+r-help(dotchart)
+p-help(plt.plot)
+
+# WHAT HAPPENS WHEN WE TAKE CEX OFF??
+dotchart(mtcars$mpg,labels=row.names(mtcars),
+main="Gas Milage for Car Models",
+xlab="Miles Per Gallon")
+# LETS ADD IT BACK!
+dotchart(mtcars$mpg,labels=row.names(mtcars),cex=.7,
+main="Gas Milage for Car Models",
+xlab="Miles Per Gallon")
+# Simple Bar Plot
+counts <- table(mtcars$gear)
+?table
+#PRINT THE COUNTScounts
+barplot(counts, main="Car Distribution",
+xlab="Number of Gears")
+# Simple Horizontal Bar Plot with Added Labels
+barplot(counts, main="Car Distribution", horiz=TRUE,
+names.arg=c("3 Gears", "4 Gears", "5 Gears"))
+# Simple Pie Chart
+slices <- c(10, 12,4, 16, 8)
+lbls <- c("US", "UK", "Australia", "Germany", "France")
+pie(slices, labels = lbls, main="Pie Chart of Countries")
+# ADD LABELS TO PIE CHART
+pct <- round(slices/sum(slices)*100)
+lbls <- paste(lbls, pct) # add percents to labels
+lbls <- paste(lbls,"%",sep="") # ad % to labels
+pie(slices,labels = lbls, col=rainbow(length(lbls)),
+main="Pie Chart of Countries")
+# Boxplot of MPG by Car Cylinders
+boxplot(mpg~cyl,data=mtcars, main="Car Milage Data",
+xlab="Number of Cylinders", ylab="Miles Per Gallon")
+# SEE BOX PLOT OF ONE COLUMN
+boxplot(mtcars$mpg)
+# ITS A PICTURE OF THE SUMMARY DATA!
+summary(mtcars)
+# WHAT DOES PLOT ON A EXCEL FILE DO???
+plot(mtcars)
+# CAN WE PLOT ONLY ONE COLUMN?
+plot(mtcars$mpg)
+# CAN WE PLOT 2 COLUMNS?
+plot(mtcars$mpg,mtcars$disp)
+#LETS ADD LABELS AND MAKE DOTS BIGGER
+plot(mtcars$wt, mtcars$mpg, main="Scatterplot Example",
+xlab="Car Weight ", ylab="Miles Per Gallon ", pch=19)
+# ADD A REGRESSION LINE!
+abline(lm(mtcars$mpg~mtcars$wt), col="red") # regression line (y~x)
