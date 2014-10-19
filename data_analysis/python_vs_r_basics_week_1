@@ -106,55 +106,124 @@ p-d = mtcars['mpg'].plot(kind='barh')
 p-d.set_title ('Gas Milage for Car Models')
 p-d.set_yticklabels(mtcars['brand'])
 p-d.set_xlabel('Miles per gallon')
+p-d.tick_params(axis='both', which='major', labelsize=6)
 p-fig = d.get_figure()
 p-plt.show()
 
 # WHAT IS CEX?? LETS CHECK THE HELP PAGE
 r-help(dotchart)
-p-help(plt.plot)
+p-help(plt.plot) or plt.plt??
 
 # WHAT HAPPENS WHEN WE TAKE CEX OFF??
-dotchart(mtcars$mpg,labels=row.names(mtcars),
-main="Gas Milage for Car Models",
-xlab="Miles Per Gallon")
+r-dotchart(mtcars$mpg,labels=row.names(mtcars),main="Gas Milage for Car Models",xlab="Miles Per Gallon")
+p-d = mtcars['mpg'].plot(kind='barh')
+p-d.set_title ('Gas Milage for Car Models')
+p-d.set_yticklabels(mtcars['brand'])
+p-d.set_xlabel('Miles per gallon')
+p-fig = d.get_figure()
+p-plt.show()
+
+
 # LETS ADD IT BACK!
-dotchart(mtcars$mpg,labels=row.names(mtcars),cex=.7,
-main="Gas Milage for Car Models",
-xlab="Miles Per Gallon")
+r-dotchart(mtcars$mpg,labels=row.names(mtcars),cex=.7,main="Gas Milage for Car Models",xlab="Miles Per Gallon")
+p-d = mtcars['mpg'].plot(kind='barh')
+p-d.set_title ('Gas Milage for Car Models')
+p-d.set_yticklabels(mtcars['brand'])
+p-d.set_xlabel('Miles per gallon')
+p-d.tick_params(axis='both', which='major', labelsize=6)
+p-fig = d.get_figure()
+p-plt.show()
+
 # Simple Bar Plot
-counts <- table(mtcars$gear)
-?table
+r-counts <- table(mtcars$gear)
+p-counts = mtcars['gear'].value_counts()
+r-?table
+
 #PRINT THE COUNTScounts
-barplot(counts, main="Car Distribution",
-xlab="Number of Gears")
+r-barplot(counts, main="Car Distribution", xlab="Number of Gears")
+p-d = counts.plot(find='bar')
+p-d.set_title('Car Distribution')
+p-d.set_xlabel('Number of Gear')
+p-fig = d.get_figure()
+p-plt.show()
+
 # Simple Horizontal Bar Plot with Added Labels
-barplot(counts, main="Car Distribution", horiz=TRUE,
-names.arg=c("3 Gears", "4 Gears", "5 Gears"))
+r-barplot(counts, main="Car Distribution", horiz=TRUE,names.arg=c("3 Gears", "4 Gears", "5 Gears"))
+p-d = counts.plot(kind='barh')
+p-d.set_title('Car Distribution')
+p-d.set_xlabel('Number of Gear')
+p-d.set_yticklabels(('3 Gears','4 Gears','5 Gears'),rotation=0)
+p-fig = d.get_figure()
+p-plt.show()
+
+
 # Simple Pie Chart
-slices <- c(10, 12,4, 16, 8)
-lbls <- c("US", "UK", "Australia", "Germany", "France")
-pie(slices, labels = lbls, main="Pie Chart of Countries")
+r-slices <- c(10, 12,4, 16, 8)
+r-lbls <- c("US", "UK", "Australia", "Germany", "France")
+r-pie(slices, labels = lbls, main="Pie Chart of Countries")
+p-slices = [10, 12,4, 16, 8]
+p-labels = ["US", "UK", "Australia", "Germany", "France"]
+p-plt.pie(slices, labels=labels)
+p-plt.title("Pie Chart of Countries")
+p-plt.show()
+
 # ADD LABELS TO PIE CHART
-pct <- round(slices/sum(slices)*100)
-lbls <- paste(lbls, pct) # add percents to labels
-lbls <- paste(lbls,"%",sep="") # ad % to labels
-pie(slices,labels = lbls, col=rainbow(length(lbls)),
-main="Pie Chart of Countries")
+r-pct <- round(slices/sum(slices)*100)
+r-lbls <- paste(lbls, pct) # add percents to labels
+r-lbls <- paste(lbls,"%",sep="") # ad % to labels
+r-pie(slices,labels = lbls, col=rainbow(length(lbls)),main="Pie Chart of Countries")
+p-slices = [10, 12,4, 16, 8]
+p-labels = ["US", "UK", "Australia", "Germany", "France"]
+p-plt.pie(slices, labels=labels, ,autopct='%.0f%%')
+p-plt.title("Pie Chart of Countries")
+p-plt.show()
+
 # Boxplot of MPG by Car Cylinders
-boxplot(mpg~cyl,data=mtcars, main="Car Milage Data",
-xlab="Number of Cylinders", ylab="Miles Per Gallon")
+r-boxplot(mpg~cyl,data=mtcars, main="Car Milage Data", xlab="Number of Cylinders", ylab="Miles Per Gallon")
+p-mtcars = ( mtcars.groupby(mtcars['mpg'] )['cyl'] )  # the 1st field is the one I group by and the 2nd the one to get the statistics
+p-test = []
+p-for name, group in survey:
+p-     test.append( group )
+p-plt.boxplot( test)
+p-plt.title("Car Milage Data")
+p-plt.ylabel("Miles Per Gallon")
+p-plt.xlabel("Number of Cylinders")
+p-plt.show()
+
+
 # SEE BOX PLOT OF ONE COLUMN
-boxplot(mtcars$mpg)
+r-boxplot(mtcars$mpg)
+p-plt.boxplot(mtcars['mpg'])
+
 # ITS A PICTURE OF THE SUMMARY DATA!
-summary(mtcars)
+r-summary(mtcars)
+p-mtcars.describe()
+
 # WHAT DOES PLOT ON A EXCEL FILE DO???
-plot(mtcars)
+r-plot(mtcars)
+p-mtcars.plot(**karg)
+
 # CAN WE PLOT ONLY ONE COLUMN?
-plot(mtcars$mpg)
+r-plot(mtcars$mpg)
+p-plt.plot(mtcars['mpg'])
+
 # CAN WE PLOT 2 COLUMNS?
-plot(mtcars$mpg,mtcars$disp)
+r-plot(mtcars$mpg,mtcars$disp)
+p-plt.scatter(mtcars['mpg'],mtcars['disp'])
+
+
 #LETS ADD LABELS AND MAKE DOTS BIGGER
-plot(mtcars$wt, mtcars$mpg, main="Scatterplot Example",
-xlab="Car Weight ", ylab="Miles Per Gallon ", pch=19)
+r-plot(mtcars$wt, mtcars$mpg, main="Scatterplot Example", xlab="Car Weight ", ylab="Miles Per Gallon ", pch=19)
+p-plt.scatter(mtcars['mpg'],mtcars['disp'], marker= 'x')
+p-plt.title('Scatterplot Example')
+p-plt.xlabel('Car weight')
+p-plt.ylabel('Miles per Gallon')
+p-plt.show()
+
 # ADD A REGRESSION LINE!
-abline(lm(mtcars$mpg~mtcars$wt), col="red") # regression line (y~x)
+r-abline(lm(mtcars$mpg~mtcars$wt), col="red") # regression line (y~x)
+p-fit = numpy.polyfit(mtcars['wt'],  mtcars['mpg'],1)
+p-fit_fn = numpy.poly1d(fit)
+p-plt.plot( mtcars['wt'], mtcars['mpg'], 'o', mtcars['wt'], fit_fn(mtcars['wt']))
+p-plt.show()
+
