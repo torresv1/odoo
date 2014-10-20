@@ -22,15 +22,15 @@
 
 {
     'name': 'POS Customer Discount',
-    'version': '1.0',
+    'version': '1.0.0',
     'category': 'Point of Sale',
     'sequence': 6,
-    'summary': 'extensions for the Point of Sale ',
+    'summary': 'Apply discount to all products in Shopping Cart based on customer',
     'description': """
 
 =======================
 
-This module adds features to the Point of Sale:
+Apply discount to all products in Shopping Cart based on customer
 
 
 """,

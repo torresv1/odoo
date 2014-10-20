@@ -22,7 +22,7 @@
 
 {
     'name': 'POS items counter',
-    'version': '1.0.0',
+    'version': '1.0',
     'category': 'Point of Sale',
     'sequence': 6,
     'summary': 'Items couting in categories for the Point of Sale ',
@@ -30,7 +30,7 @@
 
 =======================
 
-This module adds show Items counting in categories features to the Point of Sale:
+This module adds show Items couting in categories features to the Point of Sale:
 
 
 """,

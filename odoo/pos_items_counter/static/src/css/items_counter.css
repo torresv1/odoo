@@ -4,11 +4,11 @@
 .polines {
 
     float: left;
-    font-size: 14px;
+    font-size: 16px;
     text-align: left;
     font-weight: bold;
 
-    /* position:relative; */
+    position:relative;
 
     left: 15px;
     bottom:   -20px;
@@ -23,11 +23,11 @@
 
     float: left;
 
-    font-size: 14px;
+    font-size: 16px;
     text-align: left;
     font-weight: bold;
 
-   /* position:relative; */
+    position:relative;
 
     left: 15px;
     bottom:   -20px;
