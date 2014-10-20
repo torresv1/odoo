@@ -1,0 +1,5 @@
+1. Transfer one.yugla.com from 209.159.153.169 to 104.37.186.149.
+104.37.186.149:8169
+copy it to /usr/local/src/one/.
+start services /etc/init.d/odoo-one
+nginx config for one.yugla.com
