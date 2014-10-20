@@ -22,15 +22,17 @@
 
 {
     'name': 'POS subtotal',
-    'version': '1.0',
+    'version': '1.0.0',
     'category': 'Point of Sale',
     'sequence': 6,
-    'summary': 'POS  for the Point of Sale ',
+    'summary': 'POS: correct the sub-total info in the shopping cart',
     'description': """
 
 =======================
 
-This module adds POS  features to the Point of Sale:
+This module adds POS  features to the Point of Sale:   Fix the POS 'sub-total' to represent it without including 
+the discounts. On the default, the discounts are included both, in the sub-total and in the total. This module also
+add the customer name to the printed receipt.
 
 
 """,

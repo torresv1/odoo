@@ -16,15 +16,5 @@ milust_test
 
 	pos_customer_disc 1.0.0
 	
-milust.yugla.com
-	
-	pos_discount 1.0.0
-
-	pos_product_available 1.0.0
-
-	pos_product_lot 1.0.0
-
-	pos_scan_ref 1.0.0
-
-	tg_pos_debt_notebook 1.0.0
+    pos_subtotal 1.0.0
 	
