@@ -17,3 +17,8 @@
 
 #Prueba de modificación
 
+Restart V7
+
+sudo su openerp
+cd /opt/openerp/v7/server/
+./openerp-server -c /etc/openerp-server.conf &
