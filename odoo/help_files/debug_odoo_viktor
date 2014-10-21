@@ -1,0 +1,15 @@
+Debug Make one more config, all same but needed comment LOG
+
+#log_handler = ['["[\':INFO\']"]']
+#log_level = info
+#logfile = /var/log/odoo/odoo-server.log
+Stop service sudo /etc/init.d/odoo stop or sudo service odoo-server stop
+
+Start it from odoo user not from root.
+
+sudo su odoo
+Start debug mode
+
+/usr/local/src/one/odoo/openerp-server -c /etc/odoo/one-odoo-server-d.conf --debug
+
+Go to web and look in console.

@@ -1,0 +1,14 @@
+For multiple odoo services on server.
+
+Config
+
+If you change something in odoo config files (/etc/odoo/*.conf) after that make: sudo chown -R odoo:odoo /etc/odoo/
+Change in odoo config files (/etc/odoo/*.conf) ports. need change all port xml,rpc ... .
+
+For example: longpolling_port = 8072 -- > 8172 netrpc_port = 8070 -- > 8170 xmlrpc_port = 8069 -- > 8169 xmlrpcs_port = 8071 -- > 8171
+
+Service
+
+Change /etc/init.d/odoo*
+
+DAEMON=/usr/local/src/1-odoo/openerp-server NAME=1-odoo-server DESC=1-odoo-server CONFIG=/etc/odoo/1-odoo-server.conf LOGFILE=/var/log/odoo/1-odoo-server.log

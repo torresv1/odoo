@@ -1,0 +1,25 @@
+*BackUP*
+
+Go to web. database manager.
+
+Make backup your's database files. Stop odoo service.
+
+Connect to server ssh
+
+Where odoo files: for example - /usr/local/src/odoo mkdir "config" copy to config, files (nginx:if needed,odoo config /etc/odoo/*.conf, odoo star stop files /etc/init.d/odoo....)
+
+Archive file: tar -cvPzf backup-odoo.tar.gz /usr/local/src/odoo Copy archive from server.
+
+*Restore*
+
+Copy archive to server.
+
+Copy files to /usr/local/src/odoo. sudo chown -R odoo:odoo /usr/local/src/odoo
+
+Copy config files.
+
+If you change something in odoo config files (/etc/odoo/*.conf) after that make: sudo chown -R odoo:odoo /etc/odoo/
+
+start odoo service.
+
+Go to web Database Manager - restore database files.

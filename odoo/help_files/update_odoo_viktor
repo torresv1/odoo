@@ -1,0 +1,55 @@
+For curectry work odoo need user odoo. For update or some problem we can run odoo in console with debug mode.
+
+For Odoo user:
+
+sudo adduser --system --group --home /home/odoo --shell /bin/bash odoo
+sudo adduser odoo sudo
+if user exist: and you can't sudo su odoo first need delete user.
+
+sudo userdel odoo
+Firts need backup
+
+Database over web interface.
+Stop Odoo Server. sudo /etc/init.d/odoo stop or sudo service odoo-server stop
+Odoo directory (/usr/local/src/odoo4) to (/opt/odoo-backup/odoo4)
+For update you can use git
+
+in console go to /usr/local/src/odoo4/
+
+run
+
+git pull origin
+if git say problem:
+
+error: Your local changes to the following files would be overwritten by merge: addons/web/static/src/js/chrome.js Please, commit your changes or stash them before you can merge. Aborting
+
+it means you change original odoo source directly. Nedd back to original code.
+
+git stash
+git stash drop
+git pull origin
+check branch
+
+git branch
+After that you have last source odoo from branch 8.0
+
+Make chwon for source
+
+sudo chown -R odoo:odoo /usr/local/src/odoo4/
+Now we can start update, In console
+
+Run from user odoo.
+
+sudo su odoo
+Keep config for debug same with main (only in debug need comment LOG).
+
+main: /etc/odoo/odoo-server4.conf
+debug: /etc/odoo/odoo-server4-d.conf
+Run it
+
+/usr/local/src/odoo4/openerp-server -c /etc/odoo/odoo-server4-d.conf --debug --update=all
+If you see INFO ? openerp.service.server: HTTP service (werkzeug) running on 0.0.0.0:8469
+
+Go to web - Refresh page or select database.
+
+After that system update all modules. Wait. Press CTR+C. Close that and start server in normal mode.
