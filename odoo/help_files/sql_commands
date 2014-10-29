@@ -1,0 +1,6 @@
+#To find a table in a database.
+
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N''act_runs'') AND OBJECTPROPERTY(id, N''IsUserTable'') = 1)
+BEGIN
+  PRINT ''Found in db ?''
+END'
