@@ -9,11 +9,10 @@
     """,
     'author': 'Vladimir Torres-Rivas',
     'website':'http://www.yugla.com',
-    'depends':['vetclinic'],
+    'depends':['base_setup','sale'],
     'data':['vetclinic_view.xml'],
     'demo':[],
     'installable': True,
     'auto_install': False,
 }
 
-#    'depends':['base_setup'],

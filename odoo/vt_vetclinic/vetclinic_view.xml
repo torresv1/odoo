@@ -35,6 +35,27 @@
 			</field>	
 		</record>		
 									
+		<record id="vetclinic_animal_vaccinations_action" model="ir.actions.act_window">
+			<field name="name">Animal Vaccinations</field>
+			<field name="res_model">vetclinic.animal_vaccinations</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">calendar,tree,form</field>
+			<field name="help" type="html">	
+				<p class="oe_view_nocontent_create">Click Create to add a new vaccination record.</p>
+			</field>	
+		</record>		
+				
+		<record id="base_view_partner_form" model="ir.ui.view">
+			<field name="model">res.partner</field>
+			<field name="inherit_id" ref="base.view_partner_form" /> 
+		    <field name="arch" type="xml">
+		    	<notebook position="inside">
+		    		<page string ="Pets">
+		    			<field name="animal_ids" colspan="4" nolabel="1"/>
+		    		</page>
+		    	</notebook>	
+		    </field>
+		</record>
 				
 		<record id="vetclinic_animal_form_view" model="ir.ui.view">
 			<field name="name">vetclinic.animal.form.view</field>
@@ -43,14 +64,115 @@
 			<field name="arch" type="xml">
 				<form string="Animal">
 					<field name="name"/>
+					<field name="image" widget='image'/>
 					<field name="birthdate"/>
 					<field name="breed_id"/>
 					<field name="classification_id"/>
-					<field name="labels_ids"/>
+					<field name="res_partner_id" domain="[('customer','=',True)]"/>
+					<field name="labels_ids" widget="many2many_tags"/>
+					<notebook colspan= "4">
+						<page string ="Animal History">
+							<field name="history" nolabel="1" placeholder="Animal Medical history goes here..."/>							
+						</page>
+						<page string ="Vaccinations">
+							<field name="animal_vaccinations_ids" nolabel="1"/>							
+						</page>						
+					</notebook>						
 				</form>
 			</field>	
 		</record>
 		
+		<record id="vetclinic_animal_tree_view" model="ir.ui.view">
+			<field name="name">vetclinic.animal.tree.view</field>
+			<field name="view_type">tree</field>
+			<field name="model">vetclinic.animal</field>
+			<field name="arch" type="xml">
+				<tree string="Animal">
+					<field name="name"/>
+					<field name="birthdate"/>
+					<field name="breed_id"/>
+					<field name="classification_id"/>
+					<field name="res_partner_id"/>
+				</tree>
+			</field>	
+		</record>
+
+	
+				
+		<record id="vetclinic_animal_vaccinations_tree_view" model="ir.ui.view">
+			<field name="name">vetclinic.animal_vaccinations.tree.view</field>
+			<field name="view_type">tree</field>
+			<field name="model">vetclinic.animal_vaccinations</field>
+			<field name="arch" type="xml">
+				<tree string="Animal Vaccinations">
+					<field name="product_id"/>
+					<field name="due_date"/>
+					<field name="date_performed"/>
+				</tree>
+			</field>	
+		</record>
+		
+		<record id="vetclinic_animal_vaccinations_calendar_view" model="ir.ui.view">
+			<field name="name">vetclinic.animal_vaccinations.calendar.view</field>
+			<field name="view_type">calendar</field>
+			<field name="model">vetclinic.animal_vaccinations</field>
+			<field name="arch" type="xml">
+				<calendar string="Animal Vaccinations" date_start="due_date">
+					<field name="animal_id"/>
+					<field name="product_id"/>
+				</calendar>
+			</field>	
+		</record>
+				
+		<record id="vetclinic_animal_vaccinations_tree_view" model="ir.ui.view">
+			<field name="name">vetclinic.animal_vaccinations.tree.view</field>
+			<field name="view_type">tree</field>
+			<field name="model">vetclinic.animal_vaccinations</field>
+			<field name="arch" type="xml">
+				<tree string="Animal Vaccinations">
+					<field name="animal_id"/>
+					<field name="product_id"/>
+					<field name="due_date"/>
+					<field name="date_performed"/>
+				</tree>
+			</field>	
+		</record>
+
+		<record id="vetclinic_classification_form_view" model="ir.ui.view">
+			<field name="name">vetclinic.classification.form.view</field>
+			<field name="view_type">form</field>
+			<field name="model">vetclinic.classification</field>
+			<field name="arch" type="xml">
+				<form string="Classification">
+					<field name="name"/>
+					<notebook colspan= "4">
+						<page string ="Breeds">
+							<field name="breed_ids" nolabel="1"/>							
+						</page>
+					</notebook>						
+				</form>
+			</field>	
+		</record>		
+	
+		<record model="ir.ui.view" id="vetclinic_animal_search_view">
+			<field name="name">animal.search</field>
+			<field name="model">vetclinic.animal</field>
+			<field name="arch" type="xml">
+				<search string="Animal Search">
+					<filter string="Dogs" name="animal_dogs" domain="[('classification_id','=','Dog')]"/>					
+					<filter string="Cats" name="animal_cats" domain="[('classification_id','=','Cat')]"/>					
+					<filter string="Birds" name="animal_birds" domain="[('classification_id','=','Bird')]"/>					
+				    <field name="breed_id"/>	
+				    <field name="name"/>
+				    <group string="Group by">
+				    	<filter string="Classification" name="Classification" domain="[]" 
+				    	context="{'group_by':'classification_id'}" />
+				    	
+				    </group>
+				</search>		
+			</field>
+		</record>
+			
 		<menuitem id="vetclinic" name="Vet Clinic"/>	
 		<menuitem id="vetclinic_menu" name="Vet Clinic" parent= "vetclinic" />
 		<menuitem id="vetclinic_animal_menu" 
@@ -68,6 +190,11 @@
 			parent="vetclinic_menu" 
 			action="vetclinic_breed_action"
 		 />		 	
-		 	
+		<menuitem id="vetclinic_animal_vaccinations_menu" 
+			name="Animal Vaccinations" 
+			parent="vetclinic_menu" 
+			action="vetclinic_animal_vaccinations_action"
+		 />		 	
+		 			 	
 	</data>
 </openerp>
