@@ -117,7 +117,8 @@
 			<field name="view_type">calendar</field>
 			<field name="model">vetclinic.animal_vaccinations</field>
 			<field name="arch" type="xml">
-				<calendar string="Animal Vaccinations" date_start="due_date">
+                <!-- Add parametr for display calendar : color and display-->
+				<calendar string="Animal Vaccinations" date_start="due_date" color="animal_id" display="[animal_id] - [product_id]">
 					<field name="animal_id"/>
 					<field name="product_id"/>
 				</calendar>
