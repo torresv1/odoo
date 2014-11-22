@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+################################################################################
+#
+# Computerized maintenance management system (CMMS) module,
+# Copyright (C) 
+#    2013 - Ait Mlouk Addi , (http://www.saghrosoft.com), All Right Reserved
+#    2005 - 2011 Héonium (http://heonium.com). All Right Reserved
+#
+# CMMS module is free software: you can redistribute
+# it and/or modify it under the terms of the Affero GNU General Public License
+# as published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+#
+# CMMS module is distributed in the hope that it will
+# be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the Affero GNU
+# General Public License for more details.
+#
+# You should have received a copy of the Affero GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+################################################################################
+-->
+<openerp>
+    <data>
+
+        <!-- 
+        ========== 
+        PM 
+        ========== 
+        -->
+
+        <record id="view_pm_form" model="ir.ui.view">
+            <field name="name">cmms.pm.form</field>
+            <field name="model">cmms.pm</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Properties" version="7.0">
+                    <sheet>
+                    <group col="4" colspan="1">
+                        <field name="name" colspan="2" />
+                        <field name="equipment_id" />
+                        <field name="meter" />
+                        <field name="recurrent" />
+                        
+                    </group>
+                    <group col="4" colspan="4">
+                        <separator string="MP parameters " colspan="4" />
+                        <field name="days_interval" />
+                        <field name="days_last_done" />
+                        <field name="days_next_due" />
+                        <field name="days_warn_period" />
+                        <field name="days_left" />
+                        <field name="state" select="1" />
+                    </group>
+                    <separator colspan="4" string="Follow-up history" />
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_pm_tree" model="ir.ui.view">
+            <field name="name">cmms.pm.tree</field>
+            <field name="model">cmms.pm</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Properties"
+                    colors="blue:int(days_left)&lt;=days_warn_period and int(days_left)&gt;0;red:int(days_left)&lt;=0;">
+                    <field name="name" select="1" />
+                    <field name="equipment_id" colspan="2" select="1" />
+                    <field name="days_last_done" select="2" />
+                    <field name="days_next_due" select="2" />
+                    <field name="days_warn_period" select="2" />
+                    <field name="days_left" select="2" />
+                    <field name="state" select="2" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="open_view_pm_list_my" model="ir.actions.act_window">
+            <field name="name">Liste maintenances préventives</field>
+            <field name="res_model">cmms.pm</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+        </record>
+
+        
+
+        <record id="open_view_pm_new" model="ir.actions.act_window">
+            <field name="name">Nouvelle maintenance préventive</field>
+            <field name="res_model">cmms.pm</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form,tree</field>
+        </record>
+
+
+    </data>
+</openerp>

@@ -1,0 +1,40 @@
+OpenERP module : cmms
+
+Copyright (c) 
+    2013 - Ait Mlouk Addi , BADJI SSLL: Société de Services en Logiciels Libres, All Right Reserved
+    2005 - 2011 Héonium (http://heonium.com). All Right Reserved
+
+License
+-------
+
+We chose to distribute this module under AGPL-3 license term. See LICENCE file
+for details.
+
+Required dependencies
+---------------------
+
+ - An OpenERP 7 environment :-) .
+
+Description
+-----------
+
+CMMS module for OpenERP (see module description for more details).
+
+Configuration
+-------------
+
+Just install the module in OpenERP version 7 environment.
+We hope it work for you.
+
+-------------------------------------
+contactez moi :
+---------------------------------------
+Modifier par : 
+
+Ait Mlouk Addi (developpeur OpenERP)
+BADJI SSLL: Société de Services en Logiciels Libres, All Right Reserved
+Gmail: aitmlouk@gmail.com
+Tel  : 0672977726
+face : Ait Mlouk Addi
+
+-----------------------------------------------------

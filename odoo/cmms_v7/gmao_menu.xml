@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+################################################################################
+#
+# Computerized maintenance management system (CMMS) module,
+# Copyright (C) 
+#    2013 - Ait Mlouk Addi , (http://www.saghrosoft.com), All Right Reserved
+#    2005 - 2011 Héonium (http://heonium.com). All Right Reserved
+#
+# CMMS module is free software: you can redistribute
+# it and/or modify it under the terms of the Affero GNU General Public License
+# as published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+#
+# CMMS module is distributed in the hope that it will
+# be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the Affero GNU
+# General Public License for more details.
+#
+# You should have received a copy of the Affero GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+################################################################################
+-->
+<openerp>
+    <data>
+    	
+    	<menuitem id="menu_cmm" name="GMAO"  sequence="18" groups="group_cmms_manager,group_cmms_user"/>
+    	
+    		   <!-- les machines -->
+    		   <menuitem id="menu_open_view_equipment_list" name="Machine" parent="menu_cmm" />
+    		   <menuitem action="open_view_equipment_list_my" id="menu_open_view_equipment_list_my" parent="menu_open_view_equipment_list" name="Liste des machines"/>
+    		   
+    	<!-- ligne production -->
+         <menuitem id="menu_open_view_line_list" name="Ligne de production" parent="menu_cmm" /> 
+         <menuitem action="open_view_line_list_my" id="menu_open_view_line_list_my" parent="menu_open_view_line_list" name="Toutes les lignes de production"/>	
+                
+    		   
+    		         
+    		         
+    <!-- les controles -->
+    <menuitem id="menu_cmms_checklist_history" name="Liste de contrôle" parent="menu_cmm" />
+    <menuitem id="menu_cmms_checklist_all" name="Toutes les listes de contrôl" action="cmms_checklist_action_all" parent="menu_cmms_checklist_history" sequence="5" />       
+    <menuitem id="menu_cmms_checklist_history_all" name="Suivi des listes de contrôle" action="cmms_checklist_history_action_all" parent="menu_cmms_checklist_history" />
+    <menuitem id="menu_cmms_checklist_history_new" name="Remplir une liste de contrôle" action="cmms_checklist_history_action_new" parent="menu_cmms_checklist_history" />
+    
+    <!-- configuration -->
+    <menuitem id="menu_cmms_configuration" name="Configuration" sequence="99" parent="menu_cmm" />
+    <menuitem action="open_view_failure_new" id="menu_open_view_failure_new" parent="menu_cmms_configuration" name="Type de panne"/>
+    <menuitem action="open_view_request_link_list_my" id="menu_open_view_request_link_list_my" parent="menu_cmms_configuration" name="Liste des liens"/>
+    <menuitem action="open_view_equipment_new" id="menu_open_view_equipment_new2" parent="menu_cmms_configuration" name="Nouvelle liste de contrôle"/>
+    <menuitem action="open_view_line_new" id="menu_open_view_line_new2" parent="menu_cmms_configuration" name="Nouvelle ligne de production"/>
+    <menuitem id="menu_cmms_checklist_new" name="Nouvelle liste de contrôle" action="cmms_checklist_action_new" parent="menu_cmms_configuration" />
+    
+    <!-- corrective maintenance -->
+    
+    <menuitem id="menu_open_view_cm_list" name="Maintenance corrective" parent="menu_cmm" />
+    <menuitem action="open_view_cm_list_my" id="menu_open_view_cm_list_my" parent="menu_open_view_cm_list" name="Liste maintenances correctives"/>
+    <menuitem action="open_view_cm_new" id="menu_open_view_cm_new" parent="menu_open_view_cm_list" name="Nouvelle maintenance corrective"/>
+        
+        
+         <!-- intervention -->
+         
+       <menuitem id="menu_open_view_intervention_list" name="Demande d'intervention" parent="menu_cmm" />  
+       <menuitem action="open_view_intervention_list_my" id="menu_open_view_intervention_list_my" parent="menu_open_view_intervention_list" name="Liste des demandes d'interventions"/>
+       <menuitem action="open_view_intervention_new" id="menu_open_view_intervention_new" parent="menu_open_view_intervention_list" name="Nouvelle demande d'intervention"/>
+        
+        <!-- incident -->
+        
+        <menuitem id="menu_open_view_incident_list" name="Bon de travail" parent="menu_cmm" />
+        <menuitem action="cmms_incident_act" id="menu_cmms_incident_act" parent="menu_open_view_incident_list" name="Tous les bons de travail"/>
+        <menuitem action="open_view_incident_new" name="incident" id="menu_open_view_incident_new2" parent="menu_open_view_incident_list" />
+             <menuitem action="cmms_incident_act_open" id="menu_cmms_incident_act_open" parent="menu_cmms_incident_act" name="Bons de travail ouverts"/>
+             <menuitem action="cmms_incident_act_draft" id="menu_cmms_incident_act_draft" parent="menu_cmms_incident_act" name="Bons de travail brouillon"/>
+             <menuitem action="cmms_incident_act_done" id="menu_cmms_incident_act_done" parent="menu_cmms_incident_act" name="Bons de travail terminés"/>
+        
+         
+         <!-- preventive maintenance -->
+        <menuitem id="menu_open_view_pm_list" name="Maintenance préventive" parent="menu_cmm" />
+        <menuitem action="open_view_pm_list_my" id="menu_open_view_pm_list_my" parent="menu_open_view_pm_list" name="Liste maintenances préventives"/>
+        <menuitem action="open_view_pm_new" id="menu_open_view_pm_new" parent="menu_open_view_pm_list" name="Nouvelle maintenance préventive"/>
+        
+        
+        
+
+    </data>
+</openerp>

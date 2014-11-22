@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+################################################################################
+#
+# Computerized maintenance management system (CMMS) module,
+# Copyright (C) 
+#    2013 - Ait Mlouk Addi , (http://www.saghrosoft.com), All Right Reserved
+#    2005 - 2011 Héonium (http://heonium.com). All Right Reserved
+#
+# CMMS module is free software: you can redistribute
+# it and/or modify it under the terms of the Affero GNU General Public License
+# as published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+#
+# CMMS module is distributed in the hope that it will
+# be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the Affero GNU
+# General Public License for more details.
+#
+# You should have received a copy of the Affero GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+################################################################################
+-->
+<openerp>
+    <data>
+
+        <!-- 
+        ==========
+        Incident
+        ========== 
+        -->
+
+        <record id="cmms_incident_tree-view" model="ir.ui.view">
+            <field name="name">cmms.incident.tree</field>
+            <field name="model">cmms.incident</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Incident">
+                    <field name="name" readonly="1" />
+                    <field name="state" />
+                    <field name="user_id" />
+                    <field name="date" />
+                    <field name="priority" />
+                    <field name="equipment_id" />
+                    <field name="active" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="cmms_incident-view" model="ir.ui.view">
+            <field name="name">cmms.incident.form</field>
+            <field name="model">cmms.incident</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Incident" version="7.0">
+                    <sheet>
+                    <group colspan="4" col="6">
+                        <group colspan="4" col="2">
+                            <separator string="Incident description" colspan="4" />
+                            <field name="name" />
+                            <field name="date" />
+                            <field name="priority" />
+                        </group>
+                        <group colspan="1" col="2">
+                            <separator string="Incident state" colspan="2" />
+                            <field name="user_id" />
+                            <field name="state" />
+                            <field name="active" />
+                        </group>
+                    </group>
+                    <separator colspan="4" string="References" />
+                    <group>
+                    <field name="ref" string="Reference"/>
+                    </group>
+                    <newline />
+                    <notebook colspan="4">
+                        <page string="General">
+                            <group>
+                            <field name="equipment_id" string="Equipement"/>
+                            </group>
+                        </page>
+                        <page string="History">
+                            <field colspan="4" mode="tree" name="archiving3_ids" nolabel="1">
+                                <tree string="Follow-up history">
+                                    <field name="name"  />
+                                    <field name="user_id"  />
+                                    <field name="date"  />
+                                    <field name="description"  />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="cmms_incident_act" model="ir.actions.act_window">
+            <field name="name">Tous les bons de travail</field>
+            <field name="res_model">cmms.incident</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="cmms_incident_tree-view" />
+        </record>
+
+       
+
+        <record id="cmms_incident_act_open" model="ir.actions.act_window">
+            <field name="name">Bons de travail ouverts</field>
+            <field name="res_model">cmms.incident</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('state','=','confirmed')]</field>
+        </record>
+
+
+        <record id="cmms_incident_act_draft" model="ir.actions.act_window">
+            <field name="name">Bons de travail brouillon</field>
+            <field name="res_model">cmms.incident</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('state','=','draft')]</field>
+        </record>
+
+
+        <record id="cmms_incident_act_done" model="ir.actions.act_window">
+            <field name="name">Bons de travail terminés</field>
+            <field name="res_model">cmms.incident</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('state','=','done')]</field>
+        </record>
+
+        <record id="open_view_incident_new" model="ir.actions.act_window">
+            <field name="name">Nouveau bon de travail</field>
+            <field name="res_model">cmms.incident</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form,tree</field>
+        </record>
+
+    </data>
+</openerp>
