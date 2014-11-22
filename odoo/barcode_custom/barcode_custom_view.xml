@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="product_custom_barcode_form_view" model="ir.ui.view">
+            <field name="name">Custom Barcode</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view" />
+            <field name="arch" type="xml">
+                <div name="ean" position="after">
+                    <field name="barcode_code" />
+                    <field name="barcode_hr" />
+                    <field name="barcode_type" attrs="{'required':[('barcode_code','!=',False)]}" />
+                    <field name="barcode_image" widget="image"/>
+                </div>
+            </field>
+        </record>
+    </data>
+</openerp>
