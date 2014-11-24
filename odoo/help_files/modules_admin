@@ -1,8 +1,8 @@
 Customized modules administration
 
-milust_test
+milust\
 
-	pos_discount 1.0.0
+	pos_discount 1.0.0                      -
 
 	pos_product_available 1.0.0
 
@@ -10,11 +10,11 @@ milust_test
 
 	pos_scan_ref 1.0.0
 
-	tg_pos_debt_notebook 1.0.0
+	tg_pos_debt_notebook 1.0.0 -  Latino notebook like debt control "fiao".                      -
 
 	pos_item_counter 1.0.0
 
-	pos_customer_disc 1.0.0
-	
     pos_subtotal 1.0.0
+    
+    pos_adv_discount 1.0.0     - Customized discounts by Customer, Product and Product Category  - Milust and Milust_Test         
 	

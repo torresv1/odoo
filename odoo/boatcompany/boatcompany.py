@@ -7,8 +7,6 @@ class product_template(osv.osv):
     _columns = {
         'boatlength':fields.char("Boat Length", size = 10),
         'fuelcapacity': fields.char("Fuel Capacity",size=10),
-
-
     }
 
-product_template()
+
