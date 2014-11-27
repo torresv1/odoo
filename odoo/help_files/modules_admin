@@ -16,5 +16,6 @@ milust\
 
     pos_subtotal 1.0.0
     
-    pos_adv_discount 1.0.0     - Customized discounts by Customer, Product and Product Category  - Milust and Milust_Test         
+    pos_adv_discount 1.0.0     -Viktor-  Customized discounts by Customer, Product and Product Category  - Milust and Milust_Test         
 	
+	pos_ref_product 1.0.0, Viktor, Product Internal Reference visible on the Porduct Icon at the POS, Milust 
