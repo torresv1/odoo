@@ -63,20 +63,37 @@
 			<field name="model">vetclinic.animal</field>
 			<field name="arch" type="xml">
 				<form string="Animal">
-					<field name="name"/>
-					<field name="image" widget='image'/>
-					<field name="birthdate"/>
-					<field name="breed_id"/>
-					<field name="classification_id"/>
-					<field name="res_partner_id" domain="[('customer','=',True)]"/>
-					<field name="labels_ids" widget="many2many_tags"/>
+					 <sheet>
+					 	<div class="oe_left" style="width: 500px;">
+                            <field name="image" widget="image" class="oe_avatar oe_left"/>
+                            <div class="oe_title" style="width: 390px;">
+                                <label class="oe_edit_only" for="name" string="Animal Name"/>
+                                <h1><field name="name" class="oe_inline"/></h1>
+                            </div>
+                        </div>
+						<group>
+							<group>
+								<field name="breed_id"/>
+								<field name="res_partner_id" domain="[('customer','=',True)]"/>
+								<field name="labels_ids" widget="many2many_tags"/>
+							</group>
+							<group>
+								<field name="birthdate"/>
+								<field name="classification_id"/>
+							</group>
+						</group>
+					 </sheet>
+
 					<notebook colspan= "4">
-						<page string ="Animal History">
-							<field name="history" nolabel="1" placeholder="Animal Medical history goes here..."/>							
-						</page>
-						<page string ="Vaccinations">
-							<field name="animal_vaccinations_ids" nolabel="1"/>							
-						</page>						
+						<group>
+							<page string ="Animal History">
+								<field name="history" nolabel="1" placeholder="Animal Medical history goes here..."/>
+							</page>
+							<page string ="Vaccinations">
+								<field name="animal_vaccinations_ids" nolabel="1"/>
+							</page>
+						</group>
+
 					</notebook>						
 				</form>
 			</field>	

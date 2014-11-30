@@ -7,7 +7,7 @@
     Boat Company Application
     """,
     "website" : "http://www.yugla.com",
-    "depends" : ['product'],
+    "depends" : ['product','sale'],
     "category" : "Stuff",
     "sequence": 18,
     "demo" : [],
