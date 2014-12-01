@@ -82,19 +82,25 @@
 								<field name="classification_id"/>
 							</group>
 						</group>
-					 </sheet>
+
 
 					<notebook colspan= "4">
-						<group>
 							<page string ="Animal History">
-								<field name="history" nolabel="1" placeholder="Animal Medical history goes here..."/>
-							</page>
-							<page string ="Vaccinations">
-								<field name="animal_vaccinations_ids" nolabel="1"/>
-							</page>
-						</group>
 
-					</notebook>						
+								<field name="history" nolabel="1" placeholder="Animal Medical history goes here..."/>
+
+							</page>
+
+							<page string ="Vaccinations">
+
+								<field name="animal_vaccinations_ids" nolabel="1"/>
+
+							</page>
+
+
+					</notebook>
+
+					 </sheet>
 				</form>
 			</field>	
 		</record>
