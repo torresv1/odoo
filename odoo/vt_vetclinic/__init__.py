@@ -1,1 +1,1 @@
-import vetclinic
+from vt_vetclinic import vetclinic5
